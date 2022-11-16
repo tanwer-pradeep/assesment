@@ -1,6 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
+import FormBuilder from "./FormBuilder";
+import FormGenerator from "./FormGenerator";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+const formBuilder = ReactDOM.createRoot(
+  document.getElementById("form-builder")
+);
+const formGenerator = ReactDOM.createRoot(
+  document.getElementById("form-generator")
+);
+formBuilder.render(<FormBuilder />);
+formGenerator.render(<FormGenerator />);
