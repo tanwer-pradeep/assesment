@@ -20,10 +20,28 @@ const FormGenerator = () => {
       }
 
       const onSubmit = () => {
-          ElementStore.dispatch("updateOrder", data)
-        console.log("onSubmit", data);
-        // Place code to post json data to server here
+        // console.log("onSubmit", data);
+
+        const outputData = []
+        data?.forEach((ele, index) =>{
+            let arr = {}
+            arr["heading"] = ele.content ? ele.content : ele.label;
+            arr['postion'] = index + 1;
+            arr["type"] = ele.element;
+            if(ele.options){
+                arr["options"] = ele.options
+            }
+            outputData.push(arr)
+        })
+        console.log('this is outputData', outputData)
       }
+
+      const handleUndo = () =>{
+       console.log('undo feature will be available soon')
+      }
+      const handleRedo = () =>{
+        console.log('redo feature will be available soon')
+       }
 
       let modalClass = "modal";
     if (previewVisible) {
@@ -41,6 +59,21 @@ const FormGenerator = () => {
           >
             Preview Form
           </button>
+          <button
+            className="btn btn-primary float-right"
+            style={{ marginRight: "10px" }}
+            onClick={handleRedo}
+          >
+            Redo
+          </button>
+          <button
+            className="btn btn-primary float-right"
+            style={{ marginRight: "10px" }}
+            onClick={handleUndo}
+          >
+            Undo
+          </button>
+          
           
   
           {previewVisible && (

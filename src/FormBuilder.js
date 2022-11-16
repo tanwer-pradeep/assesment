@@ -5,7 +5,9 @@ import "react-form-builder2/dist/app.css";
 function FormBuilder() {
   return (
     <div className="App">
-      <ReactFormBuilder />
+      <ReactFormBuilder
+        // onPost={(data) => console.log(data, '@@@')}
+      />
     </div>
   );
 }
